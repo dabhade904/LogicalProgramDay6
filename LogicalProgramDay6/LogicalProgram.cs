@@ -94,27 +94,25 @@ namespace LogicalProgramDay6
         }
         public void CouponNumber()
         {
+            Console.WriteLine("Enter Number");
+            int digit = Convert.ToInt32(Console.ReadLine());
             char[] ch = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray();
-            char[] stringChar = new char[10];
+            char[] number = new char[digit];
             Random random = new Random();
-
-            for(int i = 0; i < stringChar.Length; i++)
+            for (int i = 0; i < 11; i++)
             {
-                stringChar[i] = ch[random.Next(ch.Length)];
+                for (int j = 0; j < number.Length; j++)
+                {
+                    number[j] = ch[random.Next(ch.Length)];
+                }
+                string coupon = new string(number);
+                Console.WriteLine("coupon is generated : " + coupon);
             }
-            string coupon = new string(stringChar);
-            Console.WriteLine("coupon is generated : " + coupon);
         }
-
         public void StopWatchProgram()
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
-
-            for(int i = 0; i < 10; i++)
-            {
-                Console.WriteLine("hii");
-            }
             sw.Stop();
             Console.WriteLine("Time elapsed : {0} ",sw.Elapsed);
         }
